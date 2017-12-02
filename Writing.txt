@@ -1,0 +1,36 @@
+The more you have; The worse it is. 
+
+Type: 2D
+Style: Platformer
+
+What? (What is the thing you have?)
+Rocks
+Books
+
+It? (What is it reffering to?)
+Speed
+Energy (Power)
+Time to complete. (Level, stage, etc.)
+
+
+2D Platformer game, where your main goal is to avoid
+rocks and other objects while going through some type
+of course so that you don't slow down and run out of
+energy.
+
+Dream clouds idea where you have to pick up certian 
+items to complete the level. But arround and near these
+items there are also objects that cause you not to be
+able to fly as high. Causing you to hit into a barrier.
+Lose. And have to restart.
+
+
+Things I have to get done. 
+
+Art:
+
+Sounds/Music:
+
+Mechanics:
+
+Polish
