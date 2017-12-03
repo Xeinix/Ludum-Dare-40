@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: adae35e5fbd489640b284a4a7c6ded3d
+timeCreated: 1512249625
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hind
+  fontNames:
+  - Hind
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0978c6691d4d4fc4da4f4d784df70ebc, type: 3}
+  - {fileID: 12800000, guid: 5ec56adc2a5c6e24981631ebb2a523a6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
