@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,10 @@ public class PlayerController : MonoBehaviour
     public GameObject uiDeath;
     public GameObject uiLose;
     public GameObject uiWin;
+    public GameObject uiBegin;
+    public GameObject uiGame;
+
+    public Text gold;
 
     #endregion
 
@@ -37,13 +42,12 @@ public class PlayerController : MonoBehaviour
     public AudioClip blackPickup;
 
     public AudioSource audioS;
-
+    
     #endregion
 
     void Start()
     {
         Debug.Log("Player Controller Loaded.");
-
         rb.gravityScale = 0;
     }
 
@@ -52,6 +56,8 @@ public class PlayerController : MonoBehaviour
         if (!isPlaying && !isDead)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.Mouse0)){
+                uiBegin.SetActive(false);
+                uiGame.SetActive(true);
                 rb.gravityScale = 1;
 
                 Vector2 vec2 = new Vector2(0, moveForceY);
@@ -63,7 +69,7 @@ public class PlayerController : MonoBehaviour
         if (isPlaying)
         {
             rb.gravityScale = charWeight;
-
+            gold.text = "Gold: " + sceneScore;
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Debug.Log("Move Character Up.");
@@ -99,17 +105,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "walls") Debug.Log("Player Died");  Death();
+        if (collision.gameObject.tag == "walls")
+        {
+            Debug.Log("Player Died");
+            Death();
+        }
 
         if (collision.gameObject.tag == "end")
         {
             if (goldReqired <= sceneScore)
             {
                 Win();
+                Debug.Log("Won");
             }
             else
             {
                 Lose();
+                Debug.Log("Lose");
             }
         }
     }
@@ -133,7 +145,8 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         rb.velocity = new Vector2(0, 0);
 
-        uiLose.SetActive(true);
+        uiWin.SetActive(true);
+        Debug.Log("WinUI Enabled");
     }
     void Lose()
     {
@@ -142,7 +155,7 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         rb.velocity = new Vector2(0, 0);
 
-        uiWin.SetActive(true);
-
+        uiLose.SetActive(true);
+        Debug.Log("LoseUI Enabled");
     }
 }
